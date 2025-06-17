@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "/src/style.css";
 
 const messages = [
@@ -7,12 +8,14 @@ const messages = [
 ];
 
 function App() {
-  const step = 1;
+  const [step, setStep] = useState(1);
+
   function handlePrevious() {
-    alert("Previous");
+    //use setStep here to change value but put the condition first to not overflow
+    if (step > 1) setStep(step - 1);
   }
   function handleNext() {
-    alert("Next");
+    if (step < 3) setStep(step + 1);
   }
   return (
     <div className="steps">
