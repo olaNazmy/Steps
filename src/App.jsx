@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import "/src/style.css";
 
 const messages = [
@@ -13,17 +13,17 @@ function App() {
 
   function handlePrevious() {
     //use setStep here to change value but put the condition first to not overflow
-    if (step > 1) setStep(step - 1);
+    if (step > 1) setStep((s) => s - 1);
   }
   function handleNext() {
-    if (step < 3) setStep(step + 1);
+    if (step < 3) setStep((s) => s + 1);
   }
   return (
-    <div>
+    <React.Fragment>
       <button
         className="close"
         onClick={() => {
-          setisOpen(!isOpen);
+          setisOpen((open) => !open);
         }}
       >
         &times;
@@ -54,7 +54,7 @@ function App() {
           </div>
         </div>
       )}
-    </div>
+    </React.Fragment>
   );
 }
 
